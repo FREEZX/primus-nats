@@ -1,0 +1,25 @@
+{
+  "name": "primus-nats",
+  "version": "1.0.0",
+  "description": "Provides nats messaging functionality on primus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FREEZX/primus-nats"
+  },
+  "author": "Kristijan Trajkovski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FREEZX/primus-nats/issues"
+  },
+  "homepage": "https://github.com/FREEZX/primus-nats",
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "nats": "^0.2.9",
+    "primus": "^2.4.12",
+    "ws": "^0.7.1"
+  }
+}
