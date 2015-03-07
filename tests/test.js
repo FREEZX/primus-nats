@@ -13,15 +13,13 @@ primus.on('connection', function(spark){
   setTimeout(function(){
     primus.emit('wtfcrew', 'OMGWTFBBQ');
     setTimeout(function(){
-      spark.leave('wtfcrew');
+      spark.leaveAll();
       setTimeout(function(){
         gotData = false;
         primus.emit('wtfcrew', 'OMGWTFBBQ');
         setTimeout(function(){
-          //Should not get data
-          if(!gotData){
-            process.exit();
-          }
+          //Should not get data because is now unsubscribed
+          console.log(gotData);
         });
       }, 100);
     }, 100);
