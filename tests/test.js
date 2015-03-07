@@ -6,11 +6,26 @@ var pnats = require('../');
 var primus = new Primus(server, { transformer: 'websockets', nats: nats });
 primus.use('nats', pnats);
 
+var gotData = false;
+
 primus.on('connection', function(spark){
   spark.join('wtfcrew');
   setTimeout(function(){
     primus.emit('wtfcrew', 'OMGWTFBBQ');
-  }, 300);
+    setTimeout(function(){
+      spark.leave('wtfcrew');
+      setTimeout(function(){
+        gotData = false;
+        primus.emit('wtfcrew', 'OMGWTFBBQ');
+        setTimeout(function(){
+          //Should not get data
+          if(!gotData){
+            process.exit();
+          }
+        });
+      }, 100);
+    }, 100);
+  }, 100);
 });
 server.listen(3000);
 
@@ -25,4 +40,5 @@ client.on('open', function(){
 client.on('data', function(data){
   console.log('Client received data');
   console.log(data);
+  gotData = true;
 });
