@@ -11,12 +11,12 @@ var gotData = false;
 primus.on('connection', function(spark){
   spark.join('wtfcrew');
   setTimeout(function(){
-    primus.emit('wtfcrew', 'OMGWTFBBQ');
+    primus.broadcast('wtfcrew', 'OMGWTFBBQ');
     setTimeout(function(){
       spark.leaveAll();
       setTimeout(function(){
         gotData = false;
-        primus.emit('wtfcrew', 'OMGWTFBBQ');
+        primus.broadcast('wtfcrew', 'OMGWTFBBQ');
         setTimeout(function(){
           //Should not get data because is now unsubscribed
           console.log(gotData);
