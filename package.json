@@ -1,6 +1,6 @@
 {
   "name": "primus-nats",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Provides nats messaging functionality on primus",
   "main": "index.js",
   "scripts": {
